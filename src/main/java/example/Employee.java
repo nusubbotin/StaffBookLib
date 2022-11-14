@@ -1,6 +1,9 @@
 package example;
 
 import java.util.Objects;
+import java.util.regex.Pattern;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class Employee {
     private static int sequence = 0;
@@ -10,9 +13,26 @@ public class Employee {
     private Department department;
     private float salary;
 
+
+    public static String upperCaseAllFirstCharacter(String text) {
+        String regex = "\\b(.)(.*?)\\b";
+        return Pattern.compile(regex)
+                .matcher(text)
+                .replaceAll(e -> e.group(1).toUpperCase() + e.group(2));
+    }
+
     public Employee(String fio, Department department, float salary) {
         this.id = genSeqNextVal();
-        this.fio = fio;
+
+        if (StringUtils.isEmpty(fio) || department == null || salary <= 0) {
+            throw  new IllegalArgumentException("Некорректные входные данные. Один из параметров не заполнен");
+        }else if (StringUtils.containsAny(fio, '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '_', '*')) {
+            throw  new IllegalArgumentException("ФИО содержит запрещенные символы");
+        }
+        this.fio = StringUtils.capitalize(fio);
+        // но так как ФИО в одном поле хранится
+        this.fio = upperCaseAllFirstCharacter(fio);
+
         this.department = department;
         this.salary = salary;
     }
