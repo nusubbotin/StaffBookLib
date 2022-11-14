@@ -10,11 +10,11 @@ public class Main {
         staffBook.addEmploy("Андрюшина Елена Викторовна", new Department("2", "бухгалтерия"), 400_000);
         staffBook.addEmploy("Базаров Булат Викторович", new Department("3", "ИТ"), 500_000);
 
-        staffBook.addEmploy("Базаров Булат Клон 1", new Department("3", "ИТ"), 500_000);
-        staffBook.addEmploy("Базаров Булат Клон 2", new Department("3", "ИТ"), 500_000);
-        staffBook.addEmploy("Базаров Булат Клон 3", new Department("3", "ИТ"), 500_000);
-        staffBook.addEmploy("Базаров Булат Клон 4", new Department("3", "ИТ"), 500_000);
-        staffBook.addEmploy("Базаров Булат Клон 5", new Department("3", "ИТ"), 500_000);
+        staffBook.addEmploy("Базаров Булат Клон *", new Department("3", "ИТ"), 500_000);
+        staffBook.addEmploy("Базаров Булат Клон Б", new Department("3", "ИТ"), 500_000);
+        staffBook.addEmploy("Базаров Булат Клон С", new Department("3", "ИТ"), 500_000);
+        staffBook.addEmploy("Базаров Булат Клон В", new Department("3", "ИТ"), 500_000);
+        staffBook.addEmploy("Базаров Булат Клон Е", new Department("3", "ИТ"), 500_000);
 
         System.out.println("Список всех сотрудников со всеми данными: ");
         staffBook.getStaffBook();
